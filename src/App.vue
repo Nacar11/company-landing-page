@@ -80,7 +80,9 @@ const triggerNav = () => {
         <div class="container mx-auto">
           <!-- GRID ITEMS -->
           <div class="grid grid-cols-1 gap-12 xl:grid-cols-3">
-            <div class="steps__step bg-pink-200 text-center">item1</div>
+            <div class="steps__step bg-pink-200 text-center">
+              <div></div>
+            </div>
           </div>
         </div>
       </section>
