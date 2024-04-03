@@ -44,3 +44,7 @@ h6
 .btn-accent {
     @apply bg-accent hover:bg-accent-hover;
 }
+
+swiper-container::part(bullet-active) {
+    @apply bg-primary
+}
