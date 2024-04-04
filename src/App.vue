@@ -507,21 +507,69 @@ const triggerNav = () => {
             </p>
           </div>
           <div class="news__grid grid grid-cols-1 gap-[27px] xl:grid-cols-3">
-            <NewsCard
-              :image="'../assets/news/news2.jpg'"
-              title="Partnership with Branded and Caffeinated"
-              subtitle="21 June, 2021"
-            ></NewsCard>
-            <NewsCard
-              :image="'././src/assets/news/news3.jpg'"
-              title="Student Promos: Latest Affordable Working Spaces for students "
-              subtitle="4 March, 2022"
-            ></NewsCard>
-            <NewsCard
-              :image="'../src/assets/news/news1.jpg'"
-              title="Best for Any Office & Business Modern Workspace"
-              subtitle="13 July, 2022"
-            ></NewsCard>
+            <div
+              class="news__item group mx-auto h-[520px] w-full max-w-[382px] cursor-pointer rounded-[62px] border border-primary/20 p-[20px] transition-all hover:bg-accent-secondary xl:mx-0"
+            >
+              <img
+                class="mb-5 rounded-tl-[42px] rounded-tr-[42px]"
+                src="../src/assets/news/news2.jpg"
+              />
+              <div class="flex flex-col gap-[30px]">
+                <h3 class="h3 font-bold">
+                  Partnership with Branded and Caffeinated
+                </h3>
+                <div class="flex items-center justify-between">
+                  <p class="text-base">21 June, 2021</p>
+                  <button
+                    class="h-[52px] w-[52px] rounded-full bg-accent-secondary transition-all group-hover:bg-white"
+                  >
+                    <i class="ri-arrow-right-s-line text-3xl text-primary"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div
+              class="news__item group mx-auto h-[520px] w-full max-w-[382px] cursor-pointer rounded-[62px] border border-primary/20 p-[20px] transition-all hover:bg-accent-secondary xl:mx-0"
+            >
+              <img
+                class="mb-5 rounded-tl-[42px] rounded-tr-[42px]"
+                src="../src/assets/news/news3.jpg"
+              />
+              <div class="flex flex-col gap-[30px]">
+                <h3 class="h3 font-bold">
+                  Student Promos: Latest Affordable Working Spaces for students
+                </h3>
+                <div class="flex items-center justify-between">
+                  <p class="text-base">4 March, 2022</p>
+                  <button
+                    class="h-[52px] w-[52px] rounded-full bg-accent-secondary transition-all group-hover:bg-white"
+                  >
+                    <i class="ri-arrow-right-s-line text-3xl text-primary"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div
+              class="news__item group mx-auto h-[520px] w-full max-w-[382px] cursor-pointer rounded-[62px] border border-primary/20 p-[20px] transition-all hover:bg-accent-secondary xl:mx-0"
+            >
+              <img
+                class="mb-5 rounded-tl-[42px] rounded-tr-[42px]"
+                src="../src/assets/news/news1.jpg"
+              />
+              <div class="flex flex-col gap-[30px]">
+                <h3 class="h3 font-bold">
+                  Best for Any Office & Business Modern Workspace
+                </h3>
+                <div class="flex items-center justify-between">
+                  <p class="text-base">13 July, 2022</p>
+                  <button
+                    class="h-[52px] w-[52px] rounded-full bg-accent-secondary transition-all group-hover:bg-white"
+                  >
+                    <i class="ri-arrow-right-s-line text-3xl text-primary"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
