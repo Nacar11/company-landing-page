@@ -2,7 +2,6 @@
 import { ref } from "vue";
 
 import { register } from "swiper/element/bundle";
-import ClientCard from "./components/ClientCard.vue";
 import Step from "./components/StepDescription.vue";
 import NewsCard from "./components/NewsCard.vue";
 register();
@@ -10,16 +9,6 @@ let isNavOpen = ref(false);
 const triggerNav = () => {
   isNavOpen.value = !isNavOpen.value;
 };
-
-// const sr = ScrollReveal({
-//   origin: "bottom",
-//   distance: "60px",
-//   duration: 3000,
-//   delay: 600,
-//   reset: true,
-// });
-
-// sr.reveal(".hero__text", { origin: "top" });
 </script>
 
 <template>
@@ -81,7 +70,7 @@ const triggerNav = () => {
             class="hero__text flex w-[700px] flex-col items-center lg:text-start"
           >
             <h1 class="h2 mb-8 lg:text-[84px]">Your Next Workspace Awaits</h1>
-            <p class="mb-8">
+            <p class="mb-8 text-slate-50">
               Discover a Haven of Productivity and Creativity - Reserve Your
               Co-Working Space Today and Step into Your Future Workplace!
             </p>
