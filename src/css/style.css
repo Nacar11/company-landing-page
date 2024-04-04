@@ -2,7 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
-
+html {
+    scroll-behavior: smooth;
+}
 body {
     @apply font-secondary text-[22px] text-secondary;
 }

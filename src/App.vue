@@ -1,16 +1,28 @@
 <script setup>
 import { ref } from "vue";
-import { register } from "swiper/element/bundle";
 
+import { register } from "swiper/element/bundle";
 import ClientCard from "./components/ClientCard.vue";
+import { vAutoAnimate } from "@formkit/auto-animate";
 import Step from "./components/StepDescription.vue";
 import NewsCard from "./components/NewsCard.vue";
 register();
-
 let isNavOpen = ref(false);
 const triggerNav = () => {
   isNavOpen.value = !isNavOpen.value;
 };
+
+const sr = ScrollReveal({
+  origin: "bottom",
+  distance: "60px",
+  duration: 3000,
+  delay: 600,
+  reset: true,
+});
+
+sr.reveal(".hero__text", { origin: "top" });
+
+let isOpen = ref(false);
 </script>
 
 <template>
@@ -33,23 +45,26 @@ const triggerNav = () => {
             ></i>
           </div>
           <ul
-            :class="isNavOpen ? 'h-[300px] p-6' : 'h-0 p-0'"
-            class="fixed left-0 right-0 top-[90px] flex w-full flex-col gap-4 overflow-hidden border-t bg-white transition-all duration-300 lg:relative lg:top-0 lg:h-full lg:flex-row lg:border-none lg:p-0"
+            :class="isNavOpen ? 'h-[300px] p-6 pb-[200px]' : 'h-0 p-0'"
+            class="fixed left-0 right-0 top-[90px] flex w-full flex-col gap-3 overflow-hidden border-t bg-white transition-all duration-300 lg:relative lg:top-0 lg:h-full lg:flex-row lg:border-none lg:p-0"
           >
             <li>
-              <a href="#">Home</a>
+              <a @click="triggerNav" href="#">Home</a>
             </li>
             <li>
-              <a href="#">About</a>
+              <a href="#about">About</a>
             </li>
             <li>
-              <a href="#">Book</a>
+              <a href="#testimonials">Testimonials</a>
             </li>
             <li>
-              <a href="#">News</a>
+              <a href="#rooms">Book</a>
             </li>
             <li>
-              <a href="#">Contact</a>
+              <a href="#news">News</a>
+            </li>
+            <li>
+              <a href="#contact">Contact</a>
             </li>
           </ul>
         </nav>
@@ -66,10 +81,12 @@ const triggerNav = () => {
       >
         <div class="container mx-auto flex h-full items-center">
           <div
-            class="hero__text flex w-[567px] flex-col items-center lg:text-start"
+            class="v-auto-animate hero__text flex w-[567px] flex-col items-center lg:text-start"
           >
-            <h1 class="h1 mb-8">Your Next Workspace Awaits</h1>
-            <p class="mb-8">
+            <h1 @click="isOpen = !isOpen" class="h1 mb-8">
+              Your Next Workspace Awaits
+            </h1>
+            <p v-if="isOpen" class="mb-8">
               Discover a Haven of Productivity and Creativity - Reserve Your
               Co-Working Space Today and Step into Your Future Workplace!
             </p>
@@ -94,7 +111,6 @@ const triggerNav = () => {
       gladly accommodate you with the working spaces available."
               iconClass="ri-phone-line"
             ></Step>
-            <!-- ri-bard-line -->
             <!-- GRID ITEM 2 -->
             <Step
               title="Accommodations, Services, and Fresh Amenities"
@@ -115,7 +131,7 @@ const triggerNav = () => {
         </div>
       </section>
       <!-- ABOUT -->
-      <section class="about relative z-20 mt-[80px] xl:mt-[200px]">
+      <section id="about" class="about relative z-20 mt-[80px] xl:mt-[200px]">
         <div class="container mx-auto xl:px-0">
           <div
             class="flex flex-col items-center justify-between gap-8 text-center xl:flex-row xl:gap-[74px] xl:text-left"
@@ -165,7 +181,10 @@ const triggerNav = () => {
         </div>
       </section>
       <!-- TESTIMONIAL -->
-      <section class="testimonial relative z-20 mt-[200px] xl:mt-[200px]">
+      <section
+        id="testimonials"
+        class="testimonial relative z-20 mt-[200px] xl:mt-[200px]"
+      >
         <div
           class="testimonial__bg container mx-auto w-full rounded-[70px] bg-accent-secondary px-6"
         >
@@ -266,17 +285,17 @@ const triggerNav = () => {
         </div>
       </section>
       <!-- ROOMS AVAILABLE -->
-      <section class="work relative z-20 mt-[150px] xl:mt-[200px]">
+      <section id="rooms" class="rooms relative z-20 mt-[150px] xl:mt-[200px]">
         <div class="container mx-auto">
           <div class="mb-24 text-center">
-            <h2 class="work__title h2 mb-4">Our Working Spaces Across Cebu</h2>
-            <p class="work__subtitle mx-auto max-w-3xl">
+            <h2 class="rooms__title h2 mb-4">Our Working Spaces Across Cebu</h2>
+            <p class="rooms__subtitle mx-auto max-w-3xl">
               Harnessing Versatility: Tailored Working Environments in Cebu for
               Every Need, from Intimate Studios to Multi-Floor Workspaces
             </p>
           </div>
           <div
-            class="work__grid grid grid-cols-1 gap-x-[104px] gap-y-[56px] xl:grid-cols-2"
+            class="rooms__grid grid grid-cols-1 gap-x-[104px] gap-y-[56px] xl:grid-cols-2"
           >
             <div class="mx-auto h-full w-full max-w-[548px]">
               <img
@@ -451,7 +470,7 @@ const triggerNav = () => {
         </div>
       </section>
       <!-- NEWS -->
-      <section class="work relative z-20 mt-[80px] xl:mt-[150px]">
+      <section id="news" class="news relative z-20 mt-[80px] xl:mt-[150px]">
         <div class="container mx-auto px-0">
           <div class="mx-auto mb-[52px] max-w-[810px] text-center">
             <h2 class="news__title h2">Articles & News</h2>
@@ -479,7 +498,110 @@ const triggerNav = () => {
           </div>
         </div>
       </section>
+      <!-- CONTACT -->
+      <section
+        id="contact"
+        class="contact relative z-20 mt-[80px] xl:mt-[150px]"
+      >
+        <div
+          class="contact__container container mx-auto bg-primary py-[80px] sm:rounded-[70px]"
+        >
+          <div
+            class="contact__text mx-auto max-w-[640px] items-center text-center"
+          >
+            <h2 class="h2 mb-4 text-white">Do you want to join GeekHub?</h2>
+            <p class="mx-auto mb-8 max-w-sm text-white xl:max-w-none">
+              Submit an application form and apply for a position
+            </p>
+            <button class="btn btn-accent mx-auto">
+              Connect with us <i class="ri-arrow-right-line text-primary"></i>
+            </button>
+          </div>
+        </div>
+      </section>
+      <!-- FOOTER -->
+      <footer class="footer relative z-20 mt-[80px] xl:mt-[150px]">
+        <div class="container mx-auto px-0">
+          <div class="flex flex-col xl:mb-[150px] xl:flex-row xl:gap-[100px]">
+            <div
+              class="footer__item mx-auto mb-8 w-full max-w-[400px] text-center xl:text-left"
+            >
+              <!-- LOGO -->
+              <a
+                class="mb-8 flex items-center justify-center xl:justify-start"
+                href=""
+              >
+                <img
+                  src="../src/assets/icons/favicon.png"
+                  class="mr-2 h-[80px] w-[80px]"
+                />
+                <span class="h3 font-secondary font-semibold">GeekHub</span>
+              </a>
+              <p class="mb-8 text-xl">
+                Stay connected with GeekHub through our social media channels to
+                keep up with our latest updates and announcements.
+              </p>
+
+              <!-- SOCIALS -->
+              <ul
+                class="flex justify-center gap-[54px] text-primary xl:justify-start"
+              >
+                <li>
+                  <a href=""><i class="ri-facebook-fill"></i></a>
+                </li>
+                <li>
+                  <a href=""><i class="ri-linkedin-fill"></i></a>
+                </li>
+                <li>
+                  <a href=""><i class="ri-instagram-fill"></i></a>
+                </li>
+                <li>
+                  <a href=""><i class="ri-mail-fill"></i></a>
+                </li>
+              </ul>
+            </div>
+            <div
+              class="flex flex-1 flex-col gap-12 text-center xl:flex-row xl:justify-end xl:gap-[100px] xl:text-left"
+            >
+              <div class="footer__item">
+                <h3 class="h3 mb-3 font-primary font-semibold">Pages</h3>
+                <ul class="flex flex-col gap-4">
+                  <li><a href="">About Us</a></li>
+                  <li><a href="">Testimonials</a></li>
+                  <li><a href="">Rooms</a></li>
+                  <li><a href="">News</a></li>
+                  <li><a href="">Contact</a></li>
+                </ul>
+              </div>
+              <div class="footer__item">
+                <h3 class="h3 mb-3 font-primary font-semibold">Services</h3>
+                <ul class="flex flex-col gap-4">
+                  <li><a href="">Reservations</a></li>
+                  <li><a href="">Appointments</a></li>
+                  <li><a href="">Platforms</a></li>
+                  <li><a href="">Partnership</a></li>
+                  <li><a href="">Contact</a></li>
+                </ul>
+              </div>
+
+              <div class="footer__item mx-auto max-w-[260px] xl:mx-0">
+                <h3 class="h3 mb-3 font-primary font-semibold">Contact</h3>
+                <div class="flex flex-col gap-6 text-[20px]">
+                  <p>31 Gochan Ave. Quiot Pardo, Cebu City, Philippines</p>
+                  <p>bdn.devc@geekhub.com</p>
+                  <p>(+63) 926 002 2340</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- COPYRIGHT -->
+        <p
+          class="footer_copyright bg-white py-10 text-center text-lg xl:border-t"
+        >
+          Copyright &copy; GeekHub 2024. All rights reserved.
+        </p>
+      </footer>
     </div>
-    <div class="h-[3000px]"></div>
   </div>
 </template>
