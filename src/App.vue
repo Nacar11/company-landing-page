@@ -211,36 +211,80 @@ const triggerNav = () => {
           >
             <!-- slides -->
             <swiper-slide>
-              <ClientCard
-                :image="'../src/assets/avatars/avatar2.jpg'"
-                name="Wendy Bustamante"
-                location="Gokayama, Japan"
+              <div
+                class="testimonial__item mx-auto flex h-[340px] w-full max-w-[450px] flex-col items-center justify-center rounded-[30px] bg-white p-9"
               >
-              </ClientCard>
+                <div class="mb-6 flex gap-4">
+                  <img
+                    src="/src/assets/avatars/avatar2.jpg"
+                    class="h-[100px] rounded-[80px]"
+                  />
+                  <div>
+                    <h3 class="h3 font-bold">Wendy Bustamante</h3>
+                    <div>Gokayama, Japan</div>
+                  </div>
+                </div>
+                <p>
+                  Lorem Ipsum is simply dummy text of the typesetting industry.
+                </p>
+              </div>
             </swiper-slide>
             <swiper-slide>
-              <ClientCard
-                :image="'../src/assets/avatars/avatar3.jpg'"
-                name="Gerald Bernardo"
-                location="Manila, Philippines"
-              ></ClientCard>
+              <div
+                class="testimonial__item mx-auto flex h-[340px] w-full max-w-[450px] flex-col items-center justify-center rounded-[30px] bg-white p-9"
+              >
+                <div class="mb-6 flex gap-4">
+                  <img
+                    src="../src/assets/avatars/avatar3.jpg"
+                    class="h-[100px] rounded-[80px]"
+                  />
+                  <div>
+                    <h3 class="h3 font-bold">Gerald Bernardo</h3>
+                    <div>Manila, Philippines</div>
+                  </div>
+                </div>
+                <p>
+                  Lorem Ipsum is simply dummy text of the typesetting industry.
+                </p>
+              </div>
             </swiper-slide>
             <swiper-slide>
-              <ClientCard
-                :image="'../src/assets/avatars/avatar1.jpg'"
-                name="Pearl Aljas Jr."
-                location="Cebu City, Philippines"
+              <div
+                class="testimonial__item mx-auto flex h-[340px] w-full max-w-[450px] flex-col items-center justify-center rounded-[30px] bg-white p-9"
               >
-              </ClientCard>
+                <div class="mb-6 flex gap-4">
+                  <img
+                    src="../src/assets/avatars/avatar1.jpg"
+                    class="h-[100px] rounded-[80px]"
+                  />
+                  <div>
+                    <h3 class="h3 font-bold">Pearl Aljas Jr.</h3>
+                    <div>Cebu City, Philippines</div>
+                  </div>
+                </div>
+                <p>
+                  Lorem Ipsum is simply dummy text of the typesetting industry.
+                </p>
+              </div>
             </swiper-slide>
-
             <swiper-slide>
-              <ClientCard
-                :image="'../src/assets/avatars/avatar4.jpg'"
-                name="Troy Michael"
-                location="Heidelberg, Germany"
+              <div
+                class="testimonial__item mx-auto flex h-[340px] w-full max-w-[450px] flex-col items-center justify-center rounded-[30px] bg-white p-9"
               >
-              </ClientCard>
+                <div class="mb-6 flex gap-4">
+                  <img
+                    src="../src/assets/avatars/avatar4.jpg"
+                    class="h-[100px] rounded-[80px]"
+                  />
+                  <div>
+                    <h3 class="h3 font-bold">Troy Michael</h3>
+                    <div>Heidelberg, Germany</div>
+                  </div>
+                </div>
+                <p>
+                  Lorem Ipsum is simply dummy text of the typesetting industry.
+                </p>
+              </div>
             </swiper-slide>
           </swiper-container>
         </div>
