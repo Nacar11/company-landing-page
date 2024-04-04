@@ -2,6 +2,9 @@
 import { ref } from "vue";
 import { register } from "swiper/element/bundle";
 
+import ClientCard from "./components/ClientCard.vue";
+import Step from "./components/StepDescription.vue";
+import NewsCard from "./components/NewsCard.vue";
 register();
 
 let isNavOpen = ref(false);
@@ -79,64 +82,40 @@ const triggerNav = () => {
       </section>
 
       <!-- STEPS -->
-      <section class="steps relative z-20 mt-[80px] xl:mt-[200px]">
+      <section class="steps relative z-20 mb-[80px] mt-[80px] xl:mt-[200px]">
         <div class="container mx-auto">
           <!-- GRID ITEMS -->
           <div class="grid grid-cols-1 gap-12 xl:grid-cols-3">
             <!-- GRID ITEM 1 -->
-            <div class="steps__step text-center">
-              <div class="mb-4">
-                <i class="ri-phone-line text-6xl text-accent"></i>
-              </div>
-              <h3 class="h3 mb-5">Book now, Walk-in Welcome</h3>
-              <p class="mx-auto mb-5 max-w-md">
-                Contact us to secure your spot, pick your preferred schedule,
-                and choose from our diverse selection of working spaces. Walk in
-                anytime and we'll gladly accommodate you with the working spaces
-                available
-              </p>
-              <a href="#" class="flex justify-center gap-2 font-medium"
-                >Read More
-                <i class="ri-arrow-right-line text-accent"></i>
-              </a>
-            </div>
+            <Step
+              title="Book now, Walk-in Welcome"
+              subtitle="Contact us to secure your spot, pick your preferred schedule, and choose
+      from our diverse selection of working spaces. Walk in anytime and we'll
+      gladly accommodate you with the working spaces available."
+              iconClass="ri-phone-line"
+            ></Step>
+            <!-- ri-bard-line -->
             <!-- GRID ITEM 2 -->
-            <div class="steps__step text-center">
-              <div class="mb-4">
-                <i class="ri-bard-line text-6xl text-accent"></i>
-              </div>
-              <h3 class="h3 mb-5">Flexible Services, Fresh Amenities</h3>
-              <p class="mx-auto mb-5 max-w-md">
-                Experience our flexible services and enjoy a fresh, clean
+            <Step
+              title="Accommodations, Services, and Fresh Amenities"
+              subtitle=" Experience our flexible services and enjoy a fresh, clean
                 environment with complimentary food and drinks. Whether you need
-                a quick snack or a caffeine boost, we've got you covered.
-              </p>
-              <a href="#" class="flex justify-center gap-2 font-medium"
-                >Read More
-                <i class="ri-arrow-right-line text-accent"></i>
-              </a>
-            </div>
+                a quick snack or a caffeine boost, we've got you covered."
+              iconClass="ri-bard-line"
+            ></Step>
             <!-- GRID ITEM 3 -->
-            <div class="steps__step text-center">
-              <div class="mb-4">
-                <i class="ri-service-line text-6xl text-accent"></i>
-              </div>
-              <h3 class="h3 mb-5">Flexible Stay Options</h3>
-              <p class="mx-auto mb-5 max-w-md">
-                Enjoy the freedom to extend your stay in our working space
+            <Step
+              title="Flexible Stay Options"
+              subtitle="Enjoy the freedom to extend your stay in our working space
                 anytime or cancel as needed. We're here to accommodate your
-                schedule and preferences to ensure the best work environment
-              </p>
-              <a href="#" class="flex justify-center gap-2 font-medium"
-                >Read More
-                <i class="ri-arrow-right-line text-accent"></i>
-              </a>
-            </div>
+                schedule and preferences to ensure the best work environment."
+              iconClass="ri-service-line"
+            ></Step>
           </div>
         </div>
       </section>
       <!-- ABOUT -->
-      <section class="about relative z-20 mt-[200px] xl:mt-[200px]">
+      <section class="about relative z-20 mt-[80px] xl:mt-[200px]">
         <div class="container mx-auto xl:px-0">
           <div
             class="flex flex-col items-center justify-between gap-8 text-center xl:flex-row xl:gap-[74px] xl:text-left"
@@ -218,83 +197,37 @@ const triggerNav = () => {
           >
             <!-- slides -->
             <swiper-slide>
-              <div
-                class="testimonial__item mx-auto flex h-[340px] w-full max-w-[450px] flex-col items-center justify-center rounded-[30px] bg-white p-9"
+              <ClientCard
+                :image="'../src/assets/avatars/avatar2.jpg'"
+                name="Wendy Bustamante"
+                location="Gokayama, Japan"
               >
-                <div class="mb-6 flex gap-4">
-                  <img
-                    src="../src/assets/avatars/avatar2.jpg"
-                    class="h-[100px] rounded-[80px]"
-                  />
-                  <div>
-                    <h3 class="h3 font-bold">Wendy Bustamante</h3>
-                    <div>Gokayama, Japan</div>
-                  </div>
-                </div>
-                <p>
-                  Lorem Ipsum is simply dummy text of the typesetting industry.
-                </p>
-              </div>
+              </ClientCard>
+            </swiper-slide>
+            <swiper-slide>
+              <ClientCard
+                :image="'../src/assets/avatars/avatar3.jpg'"
+                class="h-[100px] rounded-[80px]"
+                name="Gerald Bernardo"
+                location="Manila, Philippines"
+              ></ClientCard>
+            </swiper-slide>
+            <swiper-slide>
+              <ClientCard
+                :image="'../src/assets/avatars/avatar1.jpg'"
+                name="Pearl Aljas Jr."
+                location="Cebu City, Philippines"
+              >
+              </ClientCard>
             </swiper-slide>
 
             <swiper-slide>
-              <div
-                class="testimonial__item mx-auto flex h-[340px] w-full max-w-[450px] flex-col items-center justify-center rounded-[30px] bg-white p-9"
+              <ClientCard
+                :image="'../src/assets/avatars/avatar1.jpg'"
+                name="Troy Michael"
+                location="Heidelberg, Germany"
               >
-                <div class="mb-6 flex gap-4">
-                  <img
-                    src="../src/assets/avatars/avatar3.jpg"
-                    class="h-[100px] rounded-[80px]"
-                  />
-                  <div>
-                    <h3 class="h3 font-bold">Gerald Bernardo</h3>
-                    <div>Manila, Philippines</div>
-                  </div>
-                </div>
-                <p>
-                  Lorem Ipsum is simply dummy text of the typesetting industry.
-                </p>
-              </div>
-            </swiper-slide>
-
-            <swiper-slide>
-              <div
-                class="testimonial__item mx-auto flex h-[340px] w-full max-w-[450px] flex-col items-center justify-center rounded-[30px] bg-white p-9"
-              >
-                <div class="mb-6 flex gap-4">
-                  <img
-                    src="../src/assets/avatars/avatar1.jpg"
-                    class="h-[100px] rounded-[80px]"
-                  />
-                  <div>
-                    <h3 class="h3 font-bold">Pearl Aljas Jr.</h3>
-                    <div>Cebu City, Philippines</div>
-                  </div>
-                </div>
-                <p>
-                  Lorem Ipsum is simply dummy text of the typesetting industry.
-                </p>
-              </div>
-            </swiper-slide>
-
-            <swiper-slide>
-              <div
-                class="testimonial__item mx-auto flex h-[340px] w-full max-w-[450px] flex-col items-center justify-center rounded-[30px] bg-white p-9"
-              >
-                <div class="mb-6 flex gap-4">
-                  <img
-                    src="../src/assets/avatars/avatar4.jpg"
-                    class="h-[100px] rounded-[80px]"
-                  />
-                  <div>
-                    <h3 class="h3 font-bold">Troy Michael</h3>
-                    <div>Heidelberg, Germany</div>
-                  </div>
-                </div>
-                <p>
-                  Lorem Ipsum is simply dummy text of the typesetting industry.
-                </p>
-              </div>
+              </ClientCard>
             </swiper-slide>
           </swiper-container>
         </div>
@@ -329,6 +262,220 @@ const triggerNav = () => {
               class="brands__img mx-auto block h-[200px] w-full max-w-[200px]"
               src="/src/assets/brands/brand6.png"
             />
+          </div>
+        </div>
+      </section>
+      <!-- ROOMS AVAILABLE -->
+      <section class="work relative z-20 mt-[150px] xl:mt-[200px]">
+        <div class="container mx-auto">
+          <div class="mb-24 text-center">
+            <h2 class="work__title h2 mb-4">Our Working Spaces Across Cebu</h2>
+            <p class="work__subtitle mx-auto max-w-3xl">
+              Harnessing Versatility: Tailored Working Environments in Cebu for
+              Every Need, from Intimate Studios to Multi-Floor Workspaces
+            </p>
+          </div>
+          <div
+            class="work__grid grid grid-cols-1 gap-x-[104px] gap-y-[56px] xl:grid-cols-2"
+          >
+            <div class="mx-auto h-full w-full max-w-[548px]">
+              <img
+                class="mb-6 rounded-bl-[80px] rounded-tr-[40px]"
+                src="../src/assets/spaces/space1.jpg"
+              />
+              <div class="flex w-full items-center justify-between">
+                <div>
+                  <h3 class="h3 font-bold">
+                    Fully Functional Room with Single Boardroom Table
+                  </h3>
+                  <p>Available for 5-10 people</p>
+                </div>
+                <button
+                  class="h-[70px] w-[70px] rounded-full bg-accent-secondary hover:bg-accent/20"
+                >
+                  <i class="ri-arrow-right-s-line pl-1 text-3xl text-primary" />
+                </button>
+              </div>
+            </div>
+            <div class="mx-auto h-full w-full max-w-[548px]">
+              <img
+                class="mb-6 rounded-bl-[40px] rounded-tr-[80px]"
+                src="../src/assets/spaces/space2.jpg"
+              />
+              <div class="flex w-full items-center justify-between">
+                <div>
+                  <h3 class="h3 font-bold">Luxurious Small Room</h3>
+                  <p>Available for 3-5 people</p>
+                </div>
+                <button
+                  class="h-[70px] w-[70px] rounded-full bg-accent-secondary hover:bg-accent/20"
+                >
+                  <i class="ri-arrow-right-s-line pl-1 text-3xl text-primary" />
+                </button>
+              </div>
+            </div>
+            <div class="mx-auto h-full w-full max-w-[548px]">
+              <img
+                class="mb-6 rounded-bl-[80px] rounded-tr-[40px]"
+                src="../src/assets/spaces/space3.jpg"
+              />
+              <div class="flex w-full items-center justify-between">
+                <div>
+                  <h3 class="h3 font-bold">
+                    Fully Functional Modern Workspace
+                  </h3>
+                  <p>Available for 6-12 people</p>
+                </div>
+                <button
+                  class="h-[70px] w-[70px] rounded-full bg-accent-secondary hover:bg-accent/20"
+                >
+                  <i class="ri-arrow-right-s-line pl-1 text-3xl text-primary" />
+                </button>
+              </div>
+            </div>
+            <div class="mx-auto h-full w-full max-w-[548px]">
+              <img
+                class="mb-6 rounded-bl-[40px] rounded-tr-[80px]"
+                src="../src/assets/spaces/space4.jpg"
+              />
+              <div class="flex w-full items-center justify-between">
+                <div>
+                  <h3 class="h3 font-bold">
+                    Cozy Small Working Space with Multiple Desks
+                  </h3>
+                  <p>Available for 4-7 people</p>
+                </div>
+                <button
+                  class="h-[70px] w-[70px] rounded-full bg-accent-secondary hover:bg-accent/20"
+                >
+                  <i class="ri-arrow-right-s-line pl-1 text-3xl text-primary" />
+                </button>
+              </div>
+            </div>
+            <div class="mx-auto h-full w-full max-w-[548px]">
+              <img
+                class="mb-6 rounded-bl-[80px] rounded-tr-[40px]"
+                src="../src/assets/spaces/space5.jpg"
+              />
+              <div class="flex w-full items-center justify-between">
+                <div>
+                  <h3 class="h3 font-bold">Fully Functional Meeting Room</h3>
+                  <p>Available for 6-11 people</p>
+                </div>
+                <button
+                  class="h-[70px] w-[70px] rounded-full bg-accent-secondary hover:bg-accent/20"
+                >
+                  <i class="ri-arrow-right-s-line pl-1 text-3xl text-primary" />
+                </button>
+              </div>
+            </div>
+            <div class="mx-auto h-full w-full max-w-[548px]">
+              <img
+                class="mb-6 rounded-bl-[40px] rounded-tr-[80px]"
+                src="../src/assets/spaces/space6.jpg"
+              />
+              <div class="flex w-full items-center justify-between">
+                <div>
+                  <h3 class="h3 font-bold">Small Compact Workspace</h3>
+                  <p>Available for 3-5 people</p>
+                </div>
+                <button
+                  class="h-[70px] w-[70px] rounded-full bg-accent-secondary hover:bg-accent/20"
+                >
+                  <i class="ri-arrow-right-s-line pl-1 text-3xl text-primary" />
+                </button>
+              </div>
+            </div>
+            <div class="mx-auto h-full w-full max-w-[548px]">
+              <img
+                class="mb-6 rounded-bl-[40px] rounded-tr-[80px]"
+                src="../src/assets/spaces/space7.jpg"
+              />
+              <div class="flex w-full items-center justify-between">
+                <div>
+                  <h3 class="h3 font-bold">Private Workstation</h3>
+                  <p>Available for 1-2 people</p>
+                </div>
+                <button
+                  class="h-[70px] w-[70px] rounded-full bg-accent-secondary hover:bg-accent/20"
+                >
+                  <i class="ri-arrow-right-s-line pl-1 text-3xl text-primary" />
+                </button>
+              </div>
+            </div>
+            <div class="mx-auto h-full w-full max-w-[548px]">
+              <img
+                class="mb-6 rounded-bl-[40px] rounded-tr-[80px]"
+                src="../src/assets/spaces/space8.jpg"
+              />
+              <div class="flex w-full items-center justify-between">
+                <div>
+                  <h3 class="h3 font-bold">
+                    Spacious and Comfortable Workspace
+                  </h3>
+                  <p>Available for 5-11 people</p>
+                </div>
+                <button
+                  class="h-[70px] w-[70px] rounded-full bg-accent-secondary hover:bg-accent/20"
+                >
+                  <i class="ri-arrow-right-s-line pl-1 text-3xl text-primary" />
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- STATS -->
+      <section
+        class="stats relative z-20 mt-[150px] bg-accent-secondary py-[80px] xl:mt-[150px] xl:py-[150px]"
+      >
+        <div class="container mx-auto">
+          <div class="grid grid-cols-1 gap-12 xl:grid-cols-4">
+            <div class="stats__items text-center xl:border-r xl:border-accent">
+              <h3 class="h1 font-primary text-accent">3500+</h3>
+              <p>Bookings Annually</p>
+            </div>
+            <div class="stats__items text-center xl:border-r xl:border-accent">
+              <h3 class="h1 font-primary text-accent">9</h3>
+              <p>Years of Experience</p>
+            </div>
+            <div class="stats__items text-center xl:border-r xl:border-accent">
+              <h3 class="h1 font-primary text-accent">40+</h3>
+              <p>Active Workspaces</p>
+            </div>
+            <div class="stats__items text-center">
+              <h3 class="h1 font-primary text-accent">1200+</h3>
+              <p>Positive Client Reviews</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- NEWS -->
+      <section class="work relative z-20 mt-[80px] xl:mt-[150px]">
+        <div class="container mx-auto px-0">
+          <div class="mx-auto mb-[52px] max-w-[810px] text-center">
+            <h2 class="news__title h2">Articles & News</h2>
+            <p class="news__subtitle">
+              Stay updated with the latest articles and news from GeekHub,
+              including recent partnerships.
+            </p>
+          </div>
+          <div class="news__grid grid grid-cols-1 gap-[27px] xl:grid-cols-3">
+            <NewsCard
+              :image="'../src/assets/news/news2.jpg'"
+              title="Partnership with Branded and Caffeinated"
+              subtitle="21 June, 2021"
+            ></NewsCard>
+            <NewsCard
+              :image="'../src/assets/news/news2.jpg'"
+              title="Student Promos: Latest Affordable Working Spaces for students "
+              subtitle="4 March, 2022"
+            ></NewsCard>
+            <NewsCard
+              :image="'../src/assets/news/news1.jpg'"
+              title="Best for Any Office & Business Modern Workspace"
+              subtitle="13 July, 2022"
+            ></NewsCard>
           </div>
         </div>
       </section>
