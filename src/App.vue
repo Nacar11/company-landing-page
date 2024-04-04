@@ -508,7 +508,7 @@ const triggerNav = () => {
           </div>
           <div class="news__grid grid grid-cols-1 gap-[27px] xl:grid-cols-3">
             <NewsCard
-              :image="'../../src/assets/news/news2.jpg'"
+              :image="'../assets/news/news2.jpg'"
               title="Partnership with Branded and Caffeinated"
               subtitle="21 June, 2021"
             ></NewsCard>
