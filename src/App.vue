@@ -3,7 +3,6 @@ import { ref } from "vue";
 
 import { register } from "swiper/element/bundle";
 import ClientCard from "./components/ClientCard.vue";
-import { vAutoAnimate } from "@formkit/auto-animate";
 import Step from "./components/StepDescription.vue";
 import NewsCard from "./components/NewsCard.vue";
 register();
@@ -12,17 +11,15 @@ const triggerNav = () => {
   isNavOpen.value = !isNavOpen.value;
 };
 
-const sr = ScrollReveal({
-  origin: "bottom",
-  distance: "60px",
-  duration: 3000,
-  delay: 600,
-  reset: true,
-});
+// const sr = ScrollReveal({
+//   origin: "bottom",
+//   distance: "60px",
+//   duration: 3000,
+//   delay: 600,
+//   reset: true,
+// });
 
-sr.reveal(".hero__text", { origin: "top" });
-
-let isOpen = ref(false);
+// sr.reveal(".hero__text", { origin: "top" });
 </script>
 
 <template>
@@ -34,7 +31,7 @@ let isOpen = ref(false);
             src="../src/assets/icons/favicon.png"
             class="mr-2 h-[50px] w-[50px]"
           />
-          <span>GeekHub</span>
+          <h3 class="h3 ml-2">GeekHub</h3>
         </a>
         <nav>
           <!-- NAV MOBILE TRIGGER -->
@@ -77,16 +74,14 @@ let isOpen = ref(false);
       ></div>
       <!-- HERO BG IMAGE -->
       <section
-        class="hero relative z-20 h-[640px] bg-hero bg-fixed bg-center bg-no-repeat lg:bg-cover xl:h-[840px] xl:rounded-bl-[290px]"
+        class="hero relative z-20 h-[640px] bg-hero bg-fixed bg-center bg-no-repeat lg:bg-cover xl:h-[1040px] xl:rounded-bl-[290px]"
       >
         <div class="container mx-auto flex h-full items-center">
           <div
-            class="v-auto-animate hero__text flex w-[567px] flex-col items-center lg:text-start"
+            class="hero__text flex w-[700px] flex-col items-center lg:text-start"
           >
-            <h1 @click="isOpen = !isOpen" class="h1 mb-8">
-              Your Next Workspace Awaits
-            </h1>
-            <p v-if="isOpen" class="mb-8">
+            <h1 class="h2 mb-8 lg:text-[84px]">Your Next Workspace Awaits</h1>
+            <p class="mb-8 text-white">
               Discover a Haven of Productivity and Creativity - Reserve Your
               Co-Working Space Today and Step into Your Future Workplace!
             </p>
@@ -226,7 +221,6 @@ let isOpen = ref(false);
             <swiper-slide>
               <ClientCard
                 :image="'../src/assets/avatars/avatar3.jpg'"
-                class="h-[100px] rounded-[80px]"
                 name="Gerald Bernardo"
                 location="Manila, Philippines"
               ></ClientCard>
@@ -242,7 +236,7 @@ let isOpen = ref(false);
 
             <swiper-slide>
               <ClientCard
-                :image="'../src/assets/avatars/avatar1.jpg'"
+                :image="'../src/assets/avatars/avatar4.jpg'"
                 name="Troy Michael"
                 location="Heidelberg, Germany"
               >
