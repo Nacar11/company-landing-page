@@ -81,7 +81,7 @@ const triggerNav = () => {
             class="hero__text flex w-[700px] flex-col items-center lg:text-start"
           >
             <h1 class="h2 mb-8 lg:text-[84px]">Your Next Workspace Awaits</h1>
-            <p class="mb-8 text-white">
+            <p class="mb-8">
               Discover a Haven of Productivity and Creativity - Reserve Your
               Co-Working Space Today and Step into Your Future Workplace!
             </p>
