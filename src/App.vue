@@ -1,14 +1,32 @@
 <script setup>
-import { ref } from "vue";
-
+import { ref, onMounted, onBeforeUnmount } from "vue";
+import debounce from "lodash.debounce";
 import { register } from "swiper/element/bundle";
 import Step from "./components/StepDescription.vue";
 import NewsCard from "./components/NewsCard.vue";
+
 register();
 let isNavOpen = ref(false);
 const triggerNav = () => {
   isNavOpen.value = !isNavOpen.value;
 };
+let sections;
+let handleDebouncedScroll;
+
+const observer = new IntersectionObserver((sections) => {
+  sections.forEach((section) => {
+    if (section.isIntersecting) {
+      section.target.classList.add("show");
+    } else {
+      section.target.classList.remove("show");
+    }
+  });
+});
+
+onMounted(() => {
+  sections = document.querySelectorAll("section");
+  sections.forEach((el) => observer.observe(el));
+});
 </script>
 
 <template>
@@ -67,7 +85,7 @@ const triggerNav = () => {
       >
         <div class="container mx-auto flex h-full items-center">
           <div
-            class="hero__text flex w-[700px] flex-col items-center lg:text-start"
+            class="animate flex w-[700px] flex-col items-center lg:text-start"
           >
             <h1 class="h2 mb-8 lg:text-[84px]">Your Next Workspace Awaits</h1>
             <p class="mb-8 text-slate-50">
@@ -81,48 +99,79 @@ const triggerNav = () => {
           </div>
         </div>
       </section>
-
+      <!-- <section class="test relative z-20 mb-[80px] mt-[80px] xl:mt-[200px]">
+        <div class="animate">
+          <h1 class="animate" style="--i: 0">asdasdasdasda</h1>
+          <h1 class="animate" style="--i: 1">asdasdasdasdasdas</h1>
+          <h1 class="animate" style="--i: 2">asdasdasdasdasdas</h1>
+          <h1 class="animate" style="--i: 3">asdasdasdasdasdas</h1>
+        </div>
+      </section> -->
       <!-- STEPS -->
       <section class="steps relative z-20 mb-[80px] mt-[80px] xl:mt-[200px]">
         <div class="container mx-auto">
           <!-- GRID ITEMS -->
-          <div class="grid grid-cols-1 gap-12 xl:grid-cols-3">
+          <div class="animate grid grid-cols-1 gap-12 xl:grid-cols-3">
             <!-- GRID ITEM 1 -->
-            <Step
-              title="Book now, Walk-in Welcome"
-              subtitle="Contact us to secure your spot, pick your preferred schedule, and choose
-      from our diverse selection of working spaces. Walk in anytime and we'll
-      gladly accommodate you with the working spaces available."
-              iconClass="ri-phone-line"
-            ></Step>
+            <div class="animate text-center" style="--i: 1">
+              <i class="ri-phone-line text-6xl text-accent"></i>
+
+              <h3 class="h3 my-10">Book now, Walk-in Welcome</h3>
+              <p class="mx-auto mb-5 max-w-md">
+                Contact us to secure your spot, pick your preferred schedule,
+                and choose from our diverse selection of working spaces. Walk in
+                anytime and we'll gladly accommodate you with the working spaces
+                available.
+              </p>
+              <a href="#" class="flex justify-center gap-2 font-medium"
+                >Read More
+                <i class="ri-arrow-right-line text-accent"></i>
+              </a>
+            </div>
             <!-- GRID ITEM 2 -->
-            <Step
-              title="Accommodations, Services, and Fresh Amenities"
-              subtitle=" Experience our flexible services and enjoy a fresh, clean
+            <div class="animate text-center" style="--i: 2">
+              <i class="ri-bard-line text-6xl text-accent"></i>
+
+              <h3 class="h3 my-10">
+                Accommodations, Services, and Fresh Amenities
+              </h3>
+              <p class="mx-auto mb-5 max-w-md">
+                Experience our flexible services and enjoy a fresh, clean
                 environment with complimentary food and drinks. Whether you need
-                a quick snack or a caffeine boost, we've got you covered."
-              iconClass="ri-bard-line"
-            ></Step>
+                a quick snack or a caffeine boost, we've got you covered.
+              </p>
+              <a href="#" class="flex justify-center gap-2 font-medium"
+                >Read More
+                <i class="ri-arrow-right-line text-accent"></i>
+              </a>
+            </div>
             <!-- GRID ITEM 3 -->
-            <Step
-              title="Flexible Stay Options"
-              subtitle="Enjoy the freedom to extend your stay in our working space
+            <div class="animate text-center" style="--i: 3">
+              <i class="ri-service-line text-6xl text-accent"></i>
+
+              <h3 class="h3 my-10">Flexible Stay Options</h3>
+              <p class="mx-auto mb-5 max-w-md">
+                Enjoy the freedom to extend your stay in our working space
                 anytime or cancel as needed. We're here to accommodate your
-                schedule and preferences to ensure the best work environment."
-              iconClass="ri-service-line"
-            ></Step>
+                schedule and preferences to ensure the best work environment.
+              </p>
+              <a href="#" class="flex justify-center gap-2 font-medium"
+                >Read More
+                <i class="ri-arrow-right-line text-accent"></i>
+              </a>
+            </div>
           </div>
         </div>
       </section>
       <!-- ABOUT -->
-      <section id="about" class="about relative z-20 mt-[80px] xl:mt-[200px]">
+      <section id="about" class="about relative z-20 mt-[80px] xl:mt-[300px]">
         <div class="container mx-auto xl:px-0">
           <div
-            class="flex flex-col items-center justify-between gap-8 text-center xl:flex-row xl:gap-[74px] xl:text-left"
+            class="animate flex flex-col items-center justify-between gap-8 text-center xl:flex-row xl:gap-[74px] xl:text-left"
           >
             <!-- TEXT  -->
             <div
-              class="order-2 flex max-w-xl flex-1 flex-col items-center gap-8 xl:order-none xl:max-w-[410px] xl:items-start"
+              class="animate order-2 flex max-w-xl flex-1 flex-col items-center gap-8 xl:order-none xl:max-w-[410px] xl:items-start"
             >
               <h2 class="h2">Elevating Workspace Experiences, Seamlessly</h2>
               <p>
@@ -154,7 +203,7 @@ const triggerNav = () => {
             </div>
             <!-- IMAGE -->
             <div
-              class="about__img order-1 mx-auto max-w-[453px] xl:order-none xl:mx-0 xl:max-w-none"
+              class="animate order-1 mx-auto max-w-[453px] xl:order-none xl:mx-0 xl:max-w-none"
             >
               <img
                 src="/src/assets/about/about.jpg"
@@ -167,10 +216,10 @@ const triggerNav = () => {
       <!-- TESTIMONIAL -->
       <section
         id="testimonials"
-        class="testimonial relative z-20 mt-[200px] xl:mt-[200px]"
+        class="testimonials relative z-20 mt-[200px] xl:mt-[200px]"
       >
         <div
-          class="testimonial__bg container mx-auto w-full rounded-[70px] bg-accent-secondary px-6"
+          class="animate testimonial__bg container mx-auto w-full rounded-[70px] bg-accent-secondary px-6"
         >
           <div class="flex flex-col items-center pb-[20px] pt-[40px]">
             <h2 class="testimonial__title h2 mb-9 text-center">
@@ -285,27 +334,27 @@ const triggerNav = () => {
             class="grid grid-cols-1 items-center justify-between gap-4 lg:grid-cols-3"
           >
             <img
-              class="brands__img mx-auto block h-[200px] w-full max-w-[200px]"
+              class="animate mx-auto block h-[200px] w-full max-w-[200px]"
               src="/src/assets/brands/brand1.png"
             />
             <img
-              class="brands__img mx-auto block h-[200px] w-full max-w-[200px]"
+              class="animate mx-auto block h-[200px] w-full max-w-[200px]"
               src="/src/assets/brands/brand5.png"
             />
             <img
-              class="brands__img mx-auto block h-[200px] w-full max-w-[200px]"
+              class="animate mx-auto block h-[200px] w-full max-w-[200px]"
               src="/src/assets/brands/brand2.png"
             />
             <img
-              class="brands__img mx-auto block h-[200px] w-full max-w-[200px]"
+              class="animate mx-auto block h-[200px] w-full max-w-[200px]"
               src="/src/assets/brands/brand3.png"
             />
             <img
-              class="brands__img mx-auto block h-[200px] w-full max-w-[200px]"
+              class="animate mx-auto block h-[200px] w-full max-w-[200px]"
               src="/src/assets/brands/brand4.png"
             />
             <img
-              class="brands__img mx-auto block h-[200px] w-full max-w-[200px]"
+              class="animate mx-auto block h-[200px] w-full max-w-[200px]"
               src="/src/assets/brands/brand6.png"
             />
           </div>
@@ -315,14 +364,16 @@ const triggerNav = () => {
       <section id="rooms" class="rooms relative z-20 mt-[150px] xl:mt-[200px]">
         <div class="container mx-auto">
           <div class="mb-24 text-center">
-            <h2 class="rooms__title h2 mb-4">Our Working Spaces Across Cebu</h2>
-            <p class="rooms__subtitle mx-auto max-w-3xl">
+            <h2 class="animate h2 mb-4" style="--i: 1">
+              Our Working Spaces Across Cebu
+            </h2>
+            <p class="animate mx-auto max-w-3xl" style="--i: 2">
               Harnessing Versatility: Tailored Working Environments in Cebu for
               Every Need, from Intimate Studios to Multi-Floor Workspaces
             </p>
           </div>
           <div
-            class="rooms__grid grid grid-cols-1 gap-x-[104px] gap-y-[56px] xl:grid-cols-2"
+            class="grid grid-cols-1 gap-x-[104px] gap-y-[56px] xl:grid-cols-2"
           >
             <div class="mx-auto h-full w-full max-w-[548px]">
               <img
@@ -477,19 +528,28 @@ const triggerNav = () => {
       >
         <div class="container mx-auto">
           <div class="grid grid-cols-1 gap-12 xl:grid-cols-4">
-            <div class="stats__items text-center xl:border-r xl:border-accent">
+            <div
+              style="--i: 1"
+              class="animate text-center xl:border-r xl:border-accent"
+            >
               <h3 class="h1 font-primary text-accent">3500+</h3>
               <p>Bookings Annually</p>
             </div>
-            <div class="stats__items text-center xl:border-r xl:border-accent">
+            <div
+              style="--i: 2"
+              class="animate text-center xl:border-r xl:border-accent"
+            >
               <h3 class="h1 font-primary text-accent">9</h3>
               <p>Years of Experience</p>
             </div>
-            <div class="stats__items text-center xl:border-r xl:border-accent">
+            <div
+              style="--i: 3"
+              class="animate text-center xl:border-r xl:border-accent"
+            >
               <h3 class="h1 font-primary text-accent">40+</h3>
               <p>Active Workspaces</p>
             </div>
-            <div class="stats__items text-center">
+            <div style="--i: 4" class="animate text-center">
               <h3 class="h1 font-primary text-accent">1200+</h3>
               <p>Positive Client Reviews</p>
             </div>

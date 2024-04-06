@@ -50,3 +50,49 @@ h6
 swiper-container::part(bullet-active) {
     @apply bg-primary
 }
+
+/* SCROLL ANIMATIONS */
+.hero .animate{
+    transform: translateY(-70%);
+}
+
+.steps .animate{
+    transform: translateY(50%);
+    transition-delay: calc(.3s * var(--i));
+}
+
+.about .animate div{
+    transform: translateX(20%);
+}
+
+.testimonials .animate{
+    transform: translateY(-10%);
+}
+
+.brands .animate {
+    transform: translateY(-40%);
+}
+
+.rooms .animate {
+    transform: translateY(-10%);
+    transition-delay: calc(.3s * var(--i));
+}
+
+.stats .animate {
+    transform: translateY(-10%);
+    transition-delay: calc(.3s * var(--i));
+}
+
+section.show .animate{
+    transform: translateY(0);
+    filter: blur(0);
+}
+
+
+
+section .animate{
+    transition: 1.3s;
+    filter: blur(3px);
+}
+
+
